@@ -185,25 +185,24 @@ def generate(html_files, novelname, author, chaptername, chapter_s, chapter_e):
         os.remove(x)
 
 if __name__=="__main__":
-	#for n in range(1, 235):
-	#	clean(f"{n}.xhtml",n,1)
-	#	url_generator(url_base+url_novela,n)
-	#	url_generator2(url_base+url_novela,n)	
-	#lista_archivos()
-	#i=1
-	#for archivo in listaArchivos:
-	#	nombre = archivo.split(".")[0]
-	#	if len(nombre.split("-")) > 1:
-	#		nombre=str(nombre.split("-")[0].zfill(3)+"1")+".xhtml"
-	#	else:
-	#		nombre=str(nombre.split("-")[0].zfill(3)+"0")+".xhtml"
-	#	print(f"Procesando {archivo} a {nombre}")
-	#	os.rename(archivo,nombre)
-	#	#clean(archivo,f"{str(i).zfill(3)}",1)
-	#	i=i+1
-	#lista_archivos()	
-	#for archivo in listaArchivos:
-	#	clean(archivo,archivo.split(".")[0],1)
+	for n in range(1, 235):
+		clean(f"{n}.xhtml",n,1)
+		url_generator(url_base+url_novela,n)
+		url_generator2(url_base+url_novela,n)	
+	lista_archivos()
+	i=1
+	for archivo in listaArchivos:
+		nombre = archivo.split(".")[0]
+		if len(nombre.split("-")) > 1:
+			nombre=str(nombre.split("-")[0].zfill(3)+"1")+".xhtml"
+		else:
+			nombre=str(nombre.split("-")[0].zfill(3)+"0")+".xhtml"
+		print(f"Procesando {archivo} a {nombre}")
+		os.rename(archivo,nombre)
+		i=i+1
+	lista_archivos()	
+	for archivo in listaArchivos:
+		clean(archivo,archivo.split(".")[0],1)
 	novelname="My Girlfriend is a Zombie"
 	lista_html()
 	generate(listaArchivos,novelname, "Dark lichi","","1","234")
